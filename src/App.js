@@ -67,7 +67,7 @@ const HomePage = () => {
           setSearchTerm("");
         }}
       >
-        BookChef
+        BookCheff
       </h1>
       <h4 style={{ color: "dimgray" }}>Your personal library of books</h4>
 
