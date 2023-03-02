@@ -30,7 +30,7 @@ body {
 }
 
 
-.app {
+.app, .subjectSection{
   padding: 0rem;
 
   display: flex;
@@ -40,7 +40,6 @@ body {
 }
 
 h1 {
-  font-family: 'Shantell Sans', cursive;
   font-size: 3.5rem;
   letter-spacing: 0.9px;
   color: #1D3557;
@@ -220,7 +219,6 @@ tr:hover {
 
 .subjectSection h1 {
   font-size: 3rem;
-  margin: 2rem auto;
   color: #1D3557;
   text-align: center;
 }

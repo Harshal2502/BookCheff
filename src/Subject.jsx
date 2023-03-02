@@ -24,6 +24,7 @@ function Subject(props) {
             <Navbar />
 
             <h1>{props.name}</h1>
+            <h4 style={{ color: "dimgray", marginBottom: "3rem" }}>10 popular books for {props.name}</h4>
             <table>
                 <thead>
                     <tr>
