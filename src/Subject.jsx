@@ -11,6 +11,7 @@ function Subject(props) {
     const name = props.name.toLowerCase();
 
     useEffect(() => {
+        setBooks([])
         const fetchData = async () => {
             const response = await fetch(
                 `https://openlibrary.org/subjects/${name}.json?details=true`
@@ -29,7 +30,7 @@ function Subject(props) {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item subject physics" onClick={() => navigate('/physics')}>
                             <a class="nav-link subject-name">Physics</a>
                         </li>
