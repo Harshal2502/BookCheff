@@ -2,8 +2,6 @@ import React from "react";
 
 const Entry = (props) => {
 
-    console.log(props)
-
     return (
         <tr>
             <td>{props.title}</td>

@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Route, Link, useNavigate, Routes, Router, BrowserRouter } from 'react-router-dom';
 import './App.css'
-import Entry from './Entry';
+import Entry from './Components/Entry';
+import Navbar from './Components/Navbar';
 import searchIcon from './search.svg';
 import _debounce from 'lodash/debounce';
 import Subject from './Subject';
@@ -14,8 +15,6 @@ const HomePage = () => {
   const [offset, setOffset] = useState(0)
   const [limit, setLimit] = useState(10)
 
-  const navigate = useNavigate();
-
   const searchBooks = async (term) => {
     setLoading(true);
     try {
@@ -24,7 +23,8 @@ const HomePage = () => {
       );
       const res = await response.json();
       setLoading(false);
-      setBooks(res.docs);
+      setErr(false)
+      res.numFound !== 0 ? setBooks(res.docs) : setErr(true)
     } catch (e) {
       console.log(e)
       setErr(true);
@@ -35,31 +35,7 @@ const HomePage = () => {
   return (
     <div className="app">
 
-      <nav style={{ width: "100%", marginBottom: "3%" }} class="navbar navbar-dark navbar-expand-lg subjects">
-        <a class="navbar-brand subjects-title" onClick={() => navigate('/')}>Popular Subjects</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item subject physics" onClick={() => navigate('/physics')}>
-              <a class="nav-link subject-name">Physics</a>
-            </li>
-            <li class="nav-item subject maths" onClick={() => navigate('/maths')}>
-              <a class="nav-link subject-name">Mathematics</a>
-            </li>
-            <li class="nav-item subject philosophy" onClick={() => navigate('/philosophy')}>
-              <a style={{ color: "#1D3557" }} class="nav-link">Philosophy</a>
-            </li>
-            <li class="nav-item subject history" onClick={() => navigate('/history')}>
-              <a class="nav-link subject-name">History</a>
-            </li>
-            <li class="nav-item subject sanskrit" onClick={() => navigate('/sanskrit')}>
-              <a class="nav-link subject-name">Sanskrit</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <Navbar />
 
       <h1
         style={{ cursor: "pointer" }}
@@ -67,7 +43,7 @@ const HomePage = () => {
           setSearchTerm("");
         }}
       >
-        BookCheff
+        BookChef
       </h1>
       <h4 style={{ color: "dimgray" }}>Your personal library of books</h4>
 
@@ -86,7 +62,13 @@ const HomePage = () => {
         />
       </div>
 
-      {books.length > 0 && (
+
+      {/* BOOKS TABLE */}
+
+      {err === true && loading === false && <h2>Oh No! Looks like there's some issue :(</h2>}
+      {loading === true && <span style={{ margin: "0% 20%" }} class="loader"></span>}
+
+      {books.length > 0 && loading === false && err === false && (
         <table style={{ margin: "3% auto" }}>
           <thead>
             <tr>
@@ -103,9 +85,6 @@ const HomePage = () => {
           </tbody>
         </table>)}
 
-      {err === true && <h2>Oh No! Looks like there's some issue :(</h2>}
-
-      {loading === true && <span style={{ margin: "0% 20%" }} class="loader"></span>}
     </div>
   );
 };
