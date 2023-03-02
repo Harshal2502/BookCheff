@@ -11,17 +11,16 @@ const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1)
-  const [totalPages, setTotalPages] = useState()
-  const [offset, setOffset] = useState(0)
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
+  const [offset, setOffset] = useState(0);
+  const [searchResults, setSearchResults] = useState([]);;
+
+  const memoizedBooks = useMemo(() => books, [books]);
 
   useEffect(() => {
     searchBooks()
   }, [offset])
-
-  useEffect(() => {
-    setErr(false);
-  }, [searchTerm])
 
   const searchBooks = async (term) => {
     if (searchTerm === "") return;
@@ -109,7 +108,7 @@ const HomePage = () => {
       {err === true && loading === false && searchTerm !== "" && <h2>Oh No! Looks like there's some issue :(</h2>}
       {loading === true && <span style={{ margin: "0% 20%" }} class="loader"></span>}
 
-      {books.length > 0 && loading === false && err === false && (
+      {memoizedBooks.length > 0 && loading === false && err === false && (
         <>
           <div style={customStyle1}>
             <button className='btn btn-secondary' style={{ margin: "10px" }} onClick={() => { if (page > 1) { setPage(page - 1); setOffset(offset - 10) } }}>PREV</button>
@@ -127,7 +126,7 @@ const HomePage = () => {
               </tr>
             </thead>
             <tbody>
-              {books.map((book) => {
+              {memoizedBooks.map((book) => {
                 return <Entry key={book.key} {...book} />;
               })}
             </tbody>

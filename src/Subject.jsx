@@ -52,9 +52,9 @@ const Entry = (props) => {
     return (
         <tr>
             <td>{props.title}</td>
-            <td>{props.authors[0].name}</td>
-            <td>{props.first_publish_year}</td>
-            <td>{props.edition_count}</td>
+            <td>{props.authors[0].name ? props.authors[0].name : "-" }</td>
+            <td>{props.first_publish_year ? props.first_publish_year : "-"}</td>
+            <td>{props.edition_count ? props.edition_count : "-"}</td>
         </tr>
     )
 }
