@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/BookCheff/static/css/main.6083690a.css",
+    "main.js": "/BookCheff/static/js/main.240813b2.js",
+    "static/js/787.3e909e9d.chunk.js": "/BookCheff/static/js/787.3e909e9d.chunk.js",
+    "index.html": "/BookCheff/index.html",
+    "static/media/search.svg": "/BookCheff/static/media/search.b416605642fcb3f2447edc96c1a80e05.svg",
+    "main.6083690a.css.map": "/BookCheff/static/css/main.6083690a.css.map",
+    "main.240813b2.js.map": "/BookCheff/static/js/main.240813b2.js.map",
+    "787.3e909e9d.chunk.js.map": "/BookCheff/static/js/787.3e909e9d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6083690a.css",
+    "static/js/main.240813b2.js"
+  ]
+}
