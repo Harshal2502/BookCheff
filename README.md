@@ -25,9 +25,9 @@ BookCheff relies on the following dependencies:
 
 - React
 - React Router
-- Open Library API
 - Bootstrap
 - Lodash
+- Open Library API
 
 ## Contributing
 
