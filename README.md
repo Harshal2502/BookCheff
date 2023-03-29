@@ -1,6 +1,6 @@
 # BookCheff
 
-BookCheff is a web application that allows you to search for books by title, author, and other related keywords. This application uses the OpenLibrary API to fetch the data of the books. See it Live - https://xwqg7r-3000.preview.csb.app/
+BookCheff is a web application that allows you to search for books by title, author, and other related keywords. This application uses the OpenLibrary API to fetch the data of the books. See it Live - https://6423d37ee513dd5992fdba7f--superlative-unicorn-b9379c.netlify.app/
   
 ## Installation
 
