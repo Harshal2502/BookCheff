@@ -6,7 +6,7 @@ const Navbar = () => {
     const navigate = useNavigate();
 
     return (
-        <nav style={{ width: "100%", marginBottom: "3%" }} class="navbar navbar-dark navbar-expand-lg subjects">
+        <nav style={{ width: "100%"}} class="navbar navbar-dark navbar-expand-lg subjects">
             <a class="navbar-brand subjects-title" onClick={() => navigate('/')}>Popular Subjects</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
